@@ -8,6 +8,10 @@
 * Update HK holiays
 * Update Weltekindertag and some historical data
 
+## 5.7.4
+
+* Fix missing GR entry in index.yaml
+
 ## 5.7.3
 
 * Fix stupid naming problem in Greece yaml file
