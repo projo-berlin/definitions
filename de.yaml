@@ -26,6 +26,13 @@
 # Change 2023-04-17:
 #  - Historical data for Tag der Deutschen Einheit
 #
+## Change 2024-03-16:
+#  - Weltkindertag has been added as a new holiday for Thuringia (since 2019)
+#  - Historical data for Heilige Drei Könige for Sachsen-Anhalt (since 1991)
+#  - Historical data for Buß- und Bettag
+#  - Historical data for Friedensfest (since 1950)
+#  - Historical data for Tag der Arbeit (since 1933)
+#
 # Sources:
 # - http://en.wikipedia.org/wiki/Holidays_in_Germany
 # - http://www.timeanddate.com/calendar/index.html?country=8
@@ -84,8 +91,13 @@ months:
     regions: [de]
     mday: 1
   - name: Heilige Drei Könige
-    regions: [de_bw, de_by, de_st]
+    regions: [de_bw, de_by]
     mday: 6
+  - name: Heilige Drei Könige
+    regions: [de_st]
+    mday: 6
+    year_ranges:
+      from: 1991
   3:
   - name: Internationaler Frauentag
     regions: [de_be]
@@ -101,6 +113,8 @@ months:
   - name: Tag der Arbeit
     regions: [de]
     mday: 1
+    year_ranges:
+      from: 1933
   - name: Tag der Befreiung
     regions: [de_be]
     mday: 8
@@ -121,6 +135,8 @@ months:
   - name: Friedensfest
     regions: [de_by_augsburg]
     mday: 8
+    year_ranges:
+      from: 1950
   9:
   - name: Weltkindertag
     regions: [de_th]
@@ -157,6 +173,20 @@ months:
   - name: Buß- und Bettag
     regions: [de_sn]
     function: de_buss_und_bettag(year)
+    year_ranges:
+      from: 1990
+  - name: Buß- und Bettag
+    regions: [de_bw, de_by, de_be, de_hb, de_hh, de_he, de_ni, de_nw, de_rp, de_sl, de_sh]
+    function: de_buss_und_bettag(year)
+    year_ranges:
+      until: 1994
+  - name: Buß- und Bettag
+    regions: [de_bb, de_mv, de_st, de_th]
+    function: de_buss_und_bettag(year)
+    year_ranges:
+      between:
+        start: 1990
+        end: 1994
   12:
   - name: Heilig Abend
     regions: [de]
