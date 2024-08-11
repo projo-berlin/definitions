@@ -1,5 +1,13 @@
 # Holiday definitions
 
+## 5.8.0
+
+* FIX: tasmania / nsw / vic do not observe on Monday
+* FIX: anxac day
+* Add tsx
+* Update HK holiays
+* Update Weltekindertag and some historical data
+
 ## 5.7.4
 
 * Fix missing GR entry in index.yaml
