@@ -5,6 +5,8 @@
 # - https://en.wikipedia.org/wiki/Public_holidays_in_Luxembourg
 # - https://luxembourg.public.lu/en/living/quality-of-life/jours-feries-legaux.html
 ---
+region_names:
+  lu: "Luxembourg"
 months:
   0:
   - name: Ouschterméindeg
