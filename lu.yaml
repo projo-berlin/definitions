@@ -1,8 +1,9 @@
 # Luxembourg holiday definitions for the Ruby Holiday gem.
 #
-# Updated: 2020-01-21.
+# Updated: 2026-05-16.
 # Sources:
 # - https://en.wikipedia.org/wiki/Public_holidays_in_Luxembourg
+# - https://luxembourg.public.lu/en/living/quality-of-life/jours-feries-legaux.html
 ---
 months:
   0:
@@ -14,10 +15,11 @@ months:
     regions: [lu]
     function: easter(year)
     function_modifier: 39
+  # Whit Monday is the day after Pentecost, i.e. Easter Sunday + 50 days.
   - name: Péngschtméindeg
     regions: [lu]
     function: easter(year)
-    function_modifier: 49
+    function_modifier: 50
   1:
   - name: Neijoerschdag
     regions: [lu]
@@ -101,7 +103,7 @@ tests:
     expect:
       name: "Stiefesdag"
   - given:
-      date: '2008-05-11'
+      date: '2008-05-12'
       regions: ["lu"]
       options: ["informal"]
     expect:
