@@ -3,11 +3,6 @@ require_relative 'error'
 module Definitions
   module Validation
     class RegionNames
-      # :vi is a non-standard gem code for Vietnam (ISO 3166-1 VI = US Virgin Islands).
-      # Skip ISO validation until the breaking rename :vi -> :vn is made.
-      # See: https://github.com/holidays/definitions/issues/177
-      NON_ISO_REGIONS = %w[vi].freeze
-
       def initialize(iso_names = {})
         @iso_names = iso_names
       end
@@ -53,7 +48,6 @@ module Definitions
 
         region_names.each do |code, name|
           code_str = code.to_s
-          next if NON_ISO_REGIONS.include?(code_str)
 
           expected = @iso_names[code_str]
           next if expected.nil?

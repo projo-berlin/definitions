@@ -1,5 +1,10 @@
 # Holiday definitions
 
+## 8.0.0
+
+* Rename Vietnam region code from `vi` to `vn` to follow ISO 3166-1 alpha-2 (`VI` is US Virgin Islands, `VN` is Vietnam) for [definitions issue-177](https://github.com/holidays/definitions/issues/177)
+* Require all `region_names` to match the ISO 3166 standard with no exceptions (removed the internal escape hatch that previously allowed the non-standard `vi` code)
+
 ## 7.0.0
 
 * Drop support for EOL Ruby 3.2; minimum supported version is now Ruby 3.3 (testing 3.3, 3.4, 4.0, ruby-head)
