@@ -76,7 +76,7 @@ defs:
   Europe: ['at.yaml', 'be_fr.yaml', 'be_nl.yaml', 'ch.yaml', 'cz.yaml', 'dk.yaml', 'de.yaml', 'es.yaml', 'fr.yaml', 'gb.yaml', 'gr.yaml', 'hr.yaml', 'hu.yaml', 'ie.yaml', 'is.yaml', 'it.yaml', 'li.yaml', 'lt.yaml', 'lv.yaml', 'nl.yaml', 'no.yaml', 'pl.yaml', 'pt.yaml', 'ro.yaml', 'sk.yaml', 'si.yaml', 'bg.yaml', 'ua.yaml']
   JP: ['jp.yaml']
   VE: ['ve.yaml']
-  VI: ['vi.yaml']
+  VN: ['vn.yaml']
   SK: ['sk.yaml']
   SI: ['si.yaml']
   SG: ['sg.yaml']
