@@ -3,11 +3,6 @@ require_relative 'error'
 module Definitions
   module Validation
     class RegionNames
-      # Escape hatch for gem region codes that collide with a different ISO 3166-1
-      # meaning. Currently empty: the sole case, :vi for Vietnam, was renamed to the
-      # ISO-correct :vn. See: https://github.com/holidays/definitions/issues/177
-      NON_ISO_REGIONS = %w[].freeze
-
       def initialize(iso_names = {})
         @iso_names = iso_names
       end
@@ -53,7 +48,6 @@ module Definitions
 
         region_names.each do |code, name|
           code_str = code.to_s
-          next if NON_ISO_REGIONS.include?(code_str)
 
           expected = @iso_names[code_str]
           next if expected.nil?
