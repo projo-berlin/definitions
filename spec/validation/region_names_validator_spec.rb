@@ -36,10 +36,10 @@ describe Definitions::Validation::RegionNames do
       expect(described_class.new(iso_names).call(region_names, months)).to be true
     end
 
-    it 'skips ISO validation for regions in NON_ISO_REGIONS' do
-      iso_names = { "vi" => "Virgin Islands (U.S.)" }
-      months = { 1 => [{"name" => "Holiday", "regions" => ["vi"], "mday" => 1}] }
-      region_names = { "vi" => "Viet Nam" }
+    it 'validates vn (Vietnam) against its ISO name after the vi -> vn rename (issue #177)' do
+      iso_names = { "vn" => "Vietnam" }
+      months = { 1 => [{"name" => "Holiday", "regions" => ["vn"], "mday" => 1}] }
+      region_names = { "vn" => "Vietnam" }
       expect(described_class.new(iso_names).call(region_names, months)).to be true
     end
 
