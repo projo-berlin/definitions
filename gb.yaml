@@ -160,11 +160,11 @@ months:
   - name: Christmas Day
     regions: [gb]
     mday: 25
-    observed: to_monday_if_weekend(date)
+    observed: to_tuesday_if_sunday_or_monday_if_saturday(date)
   - name: Boxing Day
     regions: [gb]
     mday: 26
-    observed: to_weekday_if_boxing_weekend(date)
+    observed: to_tuesday_if_sunday_or_monday_if_saturday(date)
 
 tests:
   - given:
@@ -408,7 +408,25 @@ tests:
       regions: ["gb_"]
       options: ["observed"]
     expect:
+      name: "Christmas Day"
+  - given:
+      date: '2011-12-26'
+      regions: ["gb_"]
+      options: ["observed"]
+    expect:
       name: "Boxing Day"
+  - given:
+      date: '2022-12-26'
+      regions: ["gb_"]
+      options: ["observed"]
+    expect:
+      name: "Boxing Day"
+  - given:
+      date: '2022-12-27'
+      regions: ["gb_"]
+      options: ["observed"]
+    expect:
+      name: "Christmas Day"
   - given:
       date: '2010-01-01'
       regions: ["gb"]
