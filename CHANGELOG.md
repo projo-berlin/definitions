@@ -1,5 +1,18 @@
 # Holiday definitions
 
+## 8.0.0
+
+* Rename Vietnam region code from `vi` to `vn` to follow ISO 3166-1 alpha-2 (`VI` is US Virgin Islands, `VN` is Vietnam) for [definitions issue-177](https://github.com/holidays/definitions/issues/177)
+* Require all `region_names` to match the ISO 3166 standard with no exceptions (removed the internal escape hatch that previously allowed the non-standard `vi` code)
+
+## 7.0.0
+
+* Drop support for EOL Ruby 3.2; minimum supported version is now Ruby 3.3 (testing 3.3, 3.4, 4.0, ruby-head)
+* Fix `nz` Canterbury Anniversary Day to the second Friday after the first Tuesday of November for [holidays issue-285](https://github.com/holidays/holidays/issues/285)
+* Fix `lu` Whit Monday to fall on Monday (Easter Sunday + 50 days) instead of Sunday for [holidays issue-289](https://github.com/holidays/holidays/issues/289)
+* Replace nil-returning year-gate functions with `year_ranges`
+* Clarify that formal holidays are what is commonly called statutory holidays
+
 ## 6.1.1
 
 * Fix `fr` test cases to match Pentecôte/Lundi de Pentecôte informal swap introduced in 6.1.0

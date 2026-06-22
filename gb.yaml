@@ -12,6 +12,20 @@
 # - England and Wales together should be encoded as [gb_eng, gb_wls, gb_eaw...]
 # - For :gb_sct, St. Andrew's Day is 'informal' 2006 and earlier but a bank holiday from 2007 on.
 ---
+region_names:
+  gb: "United Kingdom"
+  gb_con: "Cornwall"
+  gb_eaw: "England and Wales"
+  gb_eng: "England"
+  gb_gsy: "Guernsey"
+  gb_iom: "Isle of Man"
+  gb_jsy: "Jersey"
+  gb_nir: "Northern Ireland"
+  gb_sct: "Scotland"
+  gb_wls: "Wales"
+  gg: "Guernsey"
+  im: "Isle of Man"
+  je: "Jersey"
 months:
   0:
   - name: Mothering Sunday
@@ -146,11 +160,11 @@ months:
   - name: Christmas Day
     regions: [gb]
     mday: 25
-    observed: to_monday_if_weekend(date)
+    observed: to_tuesday_if_sunday_or_monday_if_saturday(date)
   - name: Boxing Day
     regions: [gb]
     mday: 26
-    observed: to_weekday_if_boxing_weekend(date)
+    observed: to_tuesday_if_sunday_or_monday_if_saturday(date)
 
 tests:
   - given:
@@ -394,7 +408,25 @@ tests:
       regions: ["gb_"]
       options: ["observed"]
     expect:
+      name: "Christmas Day"
+  - given:
+      date: '2011-12-26'
+      regions: ["gb_"]
+      options: ["observed"]
+    expect:
       name: "Boxing Day"
+  - given:
+      date: '2022-12-26'
+      regions: ["gb_"]
+      options: ["observed"]
+    expect:
+      name: "Boxing Day"
+  - given:
+      date: '2022-12-27'
+      regions: ["gb_"]
+      options: ["observed"]
+    expect:
+      name: "Christmas Day"
   - given:
       date: '2010-01-01'
       regions: ["gb"]

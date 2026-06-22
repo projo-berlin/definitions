@@ -39,10 +39,10 @@ If either condition is not met, the pipeline will fail and the release will not 
 
 To prepare a release:
 
-1. Update `VERSION.txt` with the new version number, following [semver rules](https://semver.org/):
-   * **PATCH** bump for fixes and minor updates to existing definitions
-   * **MINOR** bump for new regions or significant additions
-   * **MAJOR** bump for breaking changes (e.g. dropping support for old downstream runtime versions)
+1. Update `VERSION.txt` with the new version number, following [Semantic Versioning 2.0.0](https://semver.org/) (the `MAJOR.MINOR.PATCH` scheme defined at semver.org):
+   * **PATCH** bump for backwards-compatible fixes and minor updates to existing definitions
+   * **MINOR** bump for new regions or other backwards-compatible additions
+   * **MAJOR** bump for ANY breaking change: anything that requires downstream consumers to change their code or expectations (e.g. renaming or removing a region code, dropping support for an old downstream runtime). We are strict: if in any doubt, bump MAJOR.
 2. Add a matching `## X.Y.Z` section to the top of [CHANGELOG.md](https://github.com/holidays/definitions/blob/master/CHANGELOG.md) with a summary of the changes included in this release. Use past entries as a guide.
 3. Open a PR with both files updated. Once the PR is merged to `master`, CI will automatically create the GitHub release and tag using the CHANGELOG entry as the release description.
 

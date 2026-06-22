@@ -4,6 +4,21 @@
 # - http://en.wikipedia.org/wiki/Public_holidays_in_New_Zealand
 # - Matariki https://www.mbie.govt.nz/business-and-employment/employment-and-skills/employment-legislation-reviews/matariki/matariki-public-holiday/
 ---
+region_names:
+  nz: "New Zealand"
+  nz_ak: "Auckland"
+  nz_ca: "Canterbury"
+  nz_ch: "Chatham Islands"
+  nz_hb: "Hawke's Bay"
+  nz_mb: "Marlborough"
+  nz_ne: "Nelson"
+  nz_nl: "Northland"
+  nz_ot: "Otago"
+  nz_sc: "South Canterbury"
+  nz_sl: "Southland"
+  nz_ta: "Taranaki"
+  nz_we: "Wellington"
+  nz_wl: "Westland"
 months:
   0:
   - name: Good Friday
@@ -101,8 +116,7 @@ months:
   11:
   - name: Canterbury Anniversary Day
     regions: [nz_ca]
-    week: 2
-    wday: 5
+    function: nz_canterbury_anniversary(year)
   - name: Chatham Island Anniversary Day
     regions: [nz_ch]
     mday: 30
@@ -282,6 +296,21 @@ tests:
       regions: ["nz"]
     expect:
       name: "King's Birthday"
+  - given:
+      date: "2023-11-17"
+      regions: ["nz_ca"]
+    expect:
+      name: "Canterbury Anniversary Day"
+  - given:
+      date: "2024-11-15"
+      regions: ["nz_ca"]
+    expect:
+      name: "Canterbury Anniversary Day"
+  - given:
+      date: "2028-11-17"
+      regions: ["nz_ca"]
+    expect:
+      name: "Canterbury Anniversary Day"
 
 
 methods:
@@ -303,6 +332,16 @@ methods:
   next_week:
     arguments: date
     ruby: |
+      date + 7
+  nz_canterbury_anniversary:
+    # Canterbury Anniversary Day (Christchurch Show Day) falls on the second
+    # Friday after the first Tuesday of November.
+    arguments: year
+    ruby: |
+      date = Date.civil(year, 11, 1)
+      date += 1 until date.tuesday?
+      date += 1
+      date += 1 until date.friday?
       date + 7
   matariki:
     # Matariki is based on the Māori lunar calendar (similar to Easter) so can't be
